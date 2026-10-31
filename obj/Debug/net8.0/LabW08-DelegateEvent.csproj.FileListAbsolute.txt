@@ -1,0 +1,15 @@
+D:\TaiLieu2026.1\OOP\lab 08\bin\Debug\net8.0\LabW08-DelegateEvent.exe
+D:\TaiLieu2026.1\OOP\lab 08\bin\Debug\net8.0\LabW08-DelegateEvent.deps.json
+D:\TaiLieu2026.1\OOP\lab 08\bin\Debug\net8.0\LabW08-DelegateEvent.runtimeconfig.json
+D:\TaiLieu2026.1\OOP\lab 08\bin\Debug\net8.0\LabW08-DelegateEvent.dll
+D:\TaiLieu2026.1\OOP\lab 08\bin\Debug\net8.0\LabW08-DelegateEvent.pdb
+D:\TaiLieu2026.1\OOP\lab 08\obj\Debug\net8.0\LabW08-DelegateEvent.GeneratedMSBuildEditorConfig.editorconfig
+D:\TaiLieu2026.1\OOP\lab 08\obj\Debug\net8.0\LabW08-DelegateEvent.AssemblyInfoInputs.cache
+D:\TaiLieu2026.1\OOP\lab 08\obj\Debug\net8.0\LabW08-DelegateEvent.AssemblyInfo.cs
+D:\TaiLieu2026.1\OOP\lab 08\obj\Debug\net8.0\LabW08-DelegateEvent.csproj.CoreCompileInputs.cache
+D:\TaiLieu2026.1\OOP\lab 08\obj\Debug\net8.0\LabW08-DelegateEvent.sourcelink.json
+D:\TaiLieu2026.1\OOP\lab 08\obj\Debug\net8.0\LabW08-DelegateEvent.dll
+D:\TaiLieu2026.1\OOP\lab 08\obj\Debug\net8.0\refint\LabW08-DelegateEvent.dll
+D:\TaiLieu2026.1\OOP\lab 08\obj\Debug\net8.0\LabW08-DelegateEvent.pdb
+D:\TaiLieu2026.1\OOP\lab 08\obj\Debug\net8.0\LabW08-DelegateEvent.genruntimeconfig.cache
+D:\TaiLieu2026.1\OOP\lab 08\obj\Debug\net8.0\ref\LabW08-DelegateEvent.dll

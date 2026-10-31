@@ -11,10 +11,8 @@ public class DeviceStatusChangedEventArgs : EventArgs
     public DateTime ChangedAt { get; }
 
     public DeviceStatusChangedEventArgs(
-        string deviceId,
-        DeviceStatus oldStatus,
-        DeviceStatus newStatus,
-        DateTime changedAt)
+        string deviceId, DeviceStatus oldStatus,
+        DeviceStatus newStatus, DateTime changedAt)
     {
         DeviceId = deviceId;
         OldStatus = oldStatus;
@@ -31,10 +29,8 @@ public class DeviceAlertEventArgs : EventArgs
     public DateTime OccurredAt { get; }
 
     public DeviceAlertEventArgs(
-        string deviceId,
-        string message,
-        AlertSeverity severity,
-        DateTime occurredAt)
+        string deviceId, string message,
+        AlertSeverity severity, DateTime occurredAt)
     {
         DeviceId = deviceId;
         Message = message;

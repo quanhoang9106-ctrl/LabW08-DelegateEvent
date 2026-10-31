@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "LabW08-DelegateEvent/1.0.0": {
+        "runtime": {
+          "LabW08-DelegateEvent.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LabW08-DelegateEvent/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -14,6 +14,12 @@ public abstract class TeachingDevice
 
     protected TeachingDevice(string id, string name)
     {
+        if (string.IsNullOrWhiteSpace(id))
+            throw new ArgumentException("Device ID cannot be empty.", nameof(id));
+
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Device name cannot be empty.", nameof(name));
+
         Id = id;
         Name = name;
         Status = DeviceStatus.Available;
@@ -21,40 +27,37 @@ public abstract class TeachingDevice
 
     public void ChangeStatus(DeviceStatus newStatus)
     {
+        if (!Enum.IsDefined(typeof(DeviceStatus), newStatus))
+            throw new ArgumentOutOfRangeException(nameof(newStatus));
+
         if (newStatus == Status)
-        {
             return;
-        }
 
         DeviceStatus oldStatus = Status;
         Status = newStatus;
 
-        DeviceStatusChangedEventArgs info =
-            new DeviceStatusChangedEventArgs(
-                Id, oldStatus, newStatus, DateTime.Now);
-
-        OnStatusChanged(info);
+        OnStatusChanged(new DeviceStatusChangedEventArgs(
+            Id, oldStatus, newStatus, DateTime.Now));
     }
 
-    protected void RaiseAlert(
-        string message,
-        AlertSeverity severity)
+    protected void RaiseAlert(string message, AlertSeverity severity)
     {
-        DeviceAlertEventArgs info =
-            new DeviceAlertEventArgs(
-                Id, message, severity, DateTime.Now);
+        if (string.IsNullOrWhiteSpace(message))
+            throw new ArgumentException("Alert message cannot be empty.", nameof(message));
 
-        OnAlertRaised(info);
+        if (!Enum.IsDefined(typeof(AlertSeverity), severity))
+            throw new ArgumentOutOfRangeException(nameof(severity));
+
+        OnAlertRaised(new DeviceAlertEventArgs(
+            Id, message, severity, DateTime.Now));
     }
 
-    protected virtual void OnStatusChanged(
-        DeviceStatusChangedEventArgs e)
+    protected virtual void OnStatusChanged(DeviceStatusChangedEventArgs e)
     {
         StatusChanged?.Invoke(this, e);
     }
 
-    protected virtual void OnAlertRaised(
-        DeviceAlertEventArgs e)
+    protected virtual void OnAlertRaised(DeviceAlertEventArgs e)
     {
         AlertRaised?.Invoke(this, e);
     }

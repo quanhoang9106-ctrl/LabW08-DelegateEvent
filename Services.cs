@@ -6,11 +6,9 @@ namespace LabW08_DelegateEvent;
 
 public class ConsoleNotificationService
 {
-    public void HandleAlert(
-        object? sender, DeviceAlertEventArgs e)
+    public void HandleAlert(object? sender, DeviceAlertEventArgs e)
     {
-        Console.WriteLine(
-            $"[{e.Severity}] {e.DeviceId}: {e.Message}");
+        Console.WriteLine($"[{e.Severity}] {e.DeviceId}: {e.Message}");
     }
 }
 
@@ -24,8 +22,7 @@ public class DeviceAuditLogger
         object? sender, DeviceStatusChangedEventArgs e)
     {
         entries.Add(
-            $"{e.ChangedAt}: {e.DeviceId}, " +
-            $"{e.OldStatus} -> {e.NewStatus}");
+            $"{e.ChangedAt}: {e.DeviceId}, {e.OldStatus} -> {e.NewStatus}");
     }
 }
 
@@ -38,13 +35,9 @@ public class MaintenanceService
     public void HandleCriticalAlert(
         object? sender, DeviceAlertEventArgs e)
     {
-        if (e.Severity != AlertSeverity.Critical)
-        {
-            return;
-        }
-
-        requests.Add(
-            $"Maintenance request for {e.DeviceId}: {e.Message}");
+        if (e.Severity == AlertSeverity.Critical)
+            requests.Add(
+                $"Maintenance request for {e.DeviceId}: {e.Message}");
     }
 }
 
@@ -59,16 +52,16 @@ public class FilteredAlertSubscriber
         AlertFilter filter,
         Action<DeviceAlertEventArgs> action)
     {
-        this.filter = filter;
-        this.action = action;
+        this.filter = filter
+            ?? throw new ArgumentNullException(nameof(filter));
+
+        this.action = action
+            ?? throw new ArgumentNullException(nameof(action));
     }
 
-    public void HandleAlert(
-        object? sender, DeviceAlertEventArgs e)
+    public void HandleAlert(object? sender, DeviceAlertEventArgs e)
     {
         if (filter(e))
-        {
             action(e);
-        }
     }
 }
